@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background shapes -->
+    <div class="news-shape"></div>
+    <div class="news-shape"></div>
+    <div class="news-shape"></div>
+
+    <!-- Loading spinner -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>Fake News Detector</h1>
+            <p>Leverage the power of Natural Language Processing to distinguish between real and fake news articles.</p>
+        </header>
+
+        <main class="main-content">
+            <section class="input-section">
+                <form id="news-form" method="POST" action="{{ url_for('predict') }}">
+                    <div class="input-group">
+                        <label for="news-text">
+                            Enter news article or headline 
+                            <span class="tooltip">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="tooltip-text">Paste a news article or headline to verify its authenticity.</span>
+                            </span>
+                        </label>
+                        <textarea id="news-text" name="message" placeholder="Paste news article or headline here..."></textarea>
+                        <div class="character-count">0 characters</div>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="btn btn-analyze">
+                            <i class="fas fa-search"></i> Analyze
+                        </button>
+                        <button type="reset" class="btn btn-reset">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            {% if pred %}
+            <section class="result-section">
+                <div class="result-card show" id="result-card">
+                    <div class="icon">
+                        {% if pred == 'Real' %}
+                        <i class="fas fa-check-circle real"></i>
+                        {% else %}
+                        <i class="fas fa-times-circle fake"></i>
+                        {% endif %}
+                    </div>
+                    <h2>Analysis Result</h2>
+                    <p>Our AI model has classified this news as:</p>
+                    <div class="confidence-meter">
+                        <div class="fill {% if pred == 'Real' %}real{% else %}fake{% endif %}" id="confidence-fill" style="width: {{ confidence }}% ;" ></div>
+                    </div>
+                    <div class="confidence-value" id="confidence-value">{{ confidence }}% {{ pred }}</div>
+                    <div class="detail-section">
+                        {% if pred == 'Real' %}
+                        <h3>Key Indicators</h3>
+                        <div class="detail-item">
+                            <div class="indicator positive"></div>
+                            <span>Credible sources cited</span>
+                        </div>
+                        <div class="detail-item">
+                            <div class="indicator positive"></div>
+                            <span>Balanced reporting style</span>
+                        </div>
+                        <div class="detail-item">
+                            <div class="indicator positive"></div>
+                            <span>Factual language patterns</span>
+                        </div>
+                        {% else %}
+                        <h3>Warning Signs</h3>
+                        <div class="detail-item">
+                            <div class="indicator negative"></div>
+                            <span>Emotional language detected</span>
+                        </div>
+                        <div class="detail-item">
+                            <div class="indicator negative"></div>
+                            <span>Lack of verifiable sources</span>
+                        </div>
+                        <div class="detail-item">
+                            <div class="indicator negative"></div>
+                            <span>Sensationalist content patterns</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+
+            <section class="features">
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Advanced NLP</h3>
+                    <p>Our system uses state-of-the-art Natural Language Processing to analyze text patterns and identify fake news.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Stay Informed</h3>
+                    <p>Don't be fooled by misleading information. Verify news before sharing to protect yourself and others.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Analysis</h3>
+                    <p>Get instant results with our high-performance ML model trained on thousands of verified articles.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Fake News Detection Project | Powered by Machine Learning | Developed by Devendra Pudi & Team</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
