@@ -6,6 +6,7 @@ This project aims to detect fake news using Natural Language Processing (NLP) an
 ## 🔗 Project Link
 
 GitHub Repository: [Fake News Detection](https://github.com/Devendra-Pudi/fake-news-detection-NLP)
+
 Try My Project: [Fake News Detector](https://fake-news-detection-project-qaqp.onrender.com/).
 
 ---
