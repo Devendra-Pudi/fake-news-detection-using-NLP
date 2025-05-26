@@ -35,6 +35,7 @@ Try My Project: [Fake News Detector](https://fake-news-detection-project-qaqp.on
 ├── main.ipynb             # Jupyter Notebook for model training
 ├── app.py                 # Flask main application
 └── README.md              # Project documentation
+└── render.yaml            # Project Deployment for Render 
 ```
 
 ---
