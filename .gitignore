@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+gunicorn app:app
 # C extensions
 *.so
 
