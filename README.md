@@ -7,7 +7,8 @@ This project aims to detect fake news using Natural Language Processing (NLP) an
 
 GitHub Repository: [Fake News Detection](https://github.com/Devendra-Pudi/fake-news-detection-NLP)
 
-Try My Project: [Fake News Detector](https://fake-news-detection-production-6434.up.railway.app/).
+Try My Project: 
+- GitHub Pages: [Fake News Detector](https://devendra-pudi.github.io/fake-news-detection-using-NLP/)
 
 ---
 
@@ -27,15 +28,16 @@ Try My Project: [Fake News Detector](https://fake-news-detection-production-6434
 ## 📁 Folder Structure
 
 ```
-├── app/                   # Flask backend
+├── .github/workflows/     # GitHub Actions workflows
 ├── templates/             # HTML templates
 ├── static/                # CSS/JS files
 ├── model/                 # Trained ML model(s)
 ├── dataset/               # News dataset (CSV)
-├── main.ipynb             # Jupyter Notebook for model training
+├── _site/                 # Generated static files for GitHub Pages
 ├── app.py                 # Flask main application
-└── README.md              # Project documentation
-└── render.yaml            # Project Deployment for Render 
+├── generate_static.py     # Script to generate static files for GitHub Pages
+├── README.md              # Project documentation
+└── render.yaml            # Configuration for Render deployment
 ```
 
 ---
@@ -88,12 +90,32 @@ The project uses a dataset with news headlines and labels (`REAL` or `FAKE`). Yo
 
 ---
 
+## 🚀 Deployment
+
+This project is deployed in two ways:
+
+### 1. GitHub Pages (Static Version)
+
+The static version is deployed using GitHub Actions and GitHub Pages. The workflow:
+
+1. When changes are pushed to the main branch, GitHub Actions is triggered
+2. The workflow runs `generate_static.py` to create static HTML files with relative paths
+3. The generated files are deployed to GitHub Pages
+
+The static version doesn't have backend functionality but demonstrates the UI.
+
+### 2. Railway App (Full Version)
+
+The full version with backend functionality is deployed on Railway using the configuration in `render.yaml`.
+
+---
+
 ## 📌 Future Improvements
 
 - Add deep learning model (e.g., LSTM)
 - Add multilingual support
 - Improve UI/UX
-- Deploy using Docker or cloud services (e.g., Heroku)
+- Add more deployment options
 
 ---
 
