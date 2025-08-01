@@ -10,6 +10,15 @@ app.config['SERVER_NAME'] = 'example.com'
 app.config['APPLICATION_ROOT'] = '/'
 app.config['PREFERRED_URL_SCHEME'] = 'https'
 
+# Register the same routes as in app.py to make url_for work
+@app.route('/')
+def home():
+    return ""
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    return ""
+
 # Ensure the _site directory exists
 output_dir = '_site'
 os.makedirs(output_dir, exist_ok=True)
