@@ -10,6 +10,21 @@ app.config['SERVER_NAME'] = 'example.com'
 app.config['APPLICATION_ROOT'] = '/'
 app.config['PREFERRED_URL_SCHEME'] = 'https'
 
+# Override url_for to use relative paths for static files
+from flask import url_for as flask_url_for
+
+@app.context_processor
+def override_url_for():
+    def url_for(endpoint, **kwargs):
+        if endpoint == 'static':
+            return './static/' + kwargs['filename']
+        elif endpoint == 'predict':
+            return './result.html'
+        elif endpoint == 'home':
+            return './index.html'
+        return flask_url_for(endpoint, **kwargs)
+    return dict(url_for=url_for)
+
 # Register the same routes as in app.py to make url_for work
 @app.route('/')
 def home():
