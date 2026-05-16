@@ -1,132 +1,105 @@
+<div align="center">
 
-# 📰 Fake News Detection Using NLP and Machine Learning
+# 📰 Fake News Detection using NLP
+### ML-powered misinformation classifier with a live web demo
 
-This project aims to detect fake news using Natural Language Processing (NLP) and Machine Learning algorithms. It leverages techniques such as TF-IDF vectorization and various classifiers (Logistic Regression, Passive Aggressive, etc.) to predict the authenticity of a news headline or article.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-222222?style=for-the-badge&logo=github)](https://devendra-pudi.github.io/fake-news-detection-using-NLP/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![Stars](https://img.shields.io/github/stars/Devendra-Pudi/fake-news-detection-using-NLP?style=for-the-badge)](https://github.com/Devendra-Pudi/fake-news-detection-using-NLP/stargazers)
 
-## 🔗 Project Link
+> *Paste any news article. Our NLP model tells you if it's real or fake — in seconds.*
 
-GitHub Repository: [Fake News Detection](https://github.com/Devendra-Pudi/fake-news-detection-NLP)
-
-Try My Project: 
-- GitHub Pages: [Fake News Detector](https://devendra-pudi.github.io/fake-news-detection-using-NLP/)
-
----
-
-## 🧠 Technologies Used
-
-- Python
-- Flask (for web interface)
-- HTML/CSS/JavaScript (frontend)
-- Scikit-learn
-- Pandas / NumPy
-- Natural Language Toolkit (NLTK)
-- Jupyter Notebook
-- Render (for Deployment)
+</div>
 
 ---
 
-## 📁 Folder Structure
+## 📖 Overview
 
-```
-├── .github/workflows/     # GitHub Actions workflows
-├── templates/             # HTML templates
-├── static/                # CSS/JS files
-├── model/                 # Trained ML model(s)
-├── dataset/               # News dataset (CSV)
-├── _site/                 # Generated static files for GitHub Pages
-├── app.py                 # Flask main application
-├── generate_static.py     # Script to generate static files for GitHub Pages
-├── README.md              # Project documentation
-└── render.yaml            # Configuration for Render deployment
-```
+**Fake News Detection** is a machine learning web application that classifies news articles as **Real** or **Fake** using Natural Language Processing techniques. It includes a complete ML pipeline — from data preprocessing and model training to a Flask web interface deployed via GitHub Pages.
 
 ---
 
-## 🧪 How to Run the Project
+## ✨ Features
 
-### 1. Clone the Repository
+- 🧠 **NLP-powered classification** — TF-IDF vectorization + ML classifier
+- 📊 **Trained on real datasets** — high accuracy on benchmark fake news datasets
+- 🌐 **Web interface** — clean Flask UI for easy text input and results
+- 🚀 **CI/CD pipeline** — automated deployment via GitHub Actions to GitHub Pages
+- 📦 **Modular codebase** — separate scripts for training, inference, and serving
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| Language | Python |
+| ML Framework | Scikit-learn |
+| NLP | TF-IDF Vectorization, NLTK |
+| Web Framework | Flask |
+| Deployment | GitHub Pages + GitHub Actions |
+| Data | CSV-based news datasets |
+
+---
+
+## 🚀 Getting Started
+
+### Installation
 
 ```bash
-git clone https://github.com/Devendra-Pudi/fake-news-detection-NLP.git
-cd fake-news-detection-NLP
-```
+# Clone the repository
+git clone https://github.com/Devendra-Pudi/fake-news-detection-using-NLP.git
+cd fake-news-detection-using-NLP
 
-### 2. Create Virtual Environment (Optional but Recommended)
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install Dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### 4. Run the Flask App
+# Train the model
+python train_model.py
 
-```bash
+# Run the Flask app
 python app.py
 ```
 
-Then go to your browser and open: `http://127.0.0.1:5000/`
+Open `http://localhost:5000` in your browser.
 
 ---
 
-## 🔍 Features
+## 📁 Project Structure
 
-- Detect fake news from input text
-- Clean UI built using HTML/CSS/JS
-- TF-IDF Vectorization
-- Logistic Regression and Passive Aggressive Classifier
-- Easy-to-use Flask interface
-
----
-
-## 📊 Sample Dataset
-
-The project uses a dataset with news headlines and labels (`REAL` or `FAKE`). You can replace this with any custom dataset in CSV format.
-
----
-
-## 🚀 Deployment
-
-This project is deployed in two ways:
-
-### 1. GitHub Pages (Static Version)
-
-The static version is deployed using GitHub Actions and GitHub Pages. The workflow:
-
-1. When changes are pushed to the main branch, GitHub Actions is triggered
-2. The workflow runs `generate_static.py` to create static HTML files with relative paths
-3. The generated files are deployed to GitHub Pages
-
-The static version doesn't have backend functionality but demonstrates the UI.
-
-### 2. Railway App (Full Version)
-
-The full version with backend functionality is deployed on Railway using the configuration in `render.yaml`.
+```
+fake-news-detection-using-NLP/
+├── dataset/            # Training & test datasets
+├── model/              # Saved ML model files
+├── static/             # CSS & JS assets
+├── templates/          # HTML templates (Jinja2)
+├── .github/workflows/  # CI/CD pipeline for GitHub Pages
+├── app.py              # Flask web application
+├── train_model.py      # Model training script
+├── generate_static.py  # Static site generator for GH Pages
+└── requirements.txt    # Python dependencies
+```
 
 ---
 
-## 📌 Future Improvements
+## 🌍 Live Demo
 
-- Add deep learning model (e.g., LSTM)
-- Add multilingual support
-- Improve UI/UX
-- Add more deployment options
+**→ [devendra-pudi.github.io/fake-news-detection-using-NLP](https://devendra-pudi.github.io/fake-news-detection-using-NLP/)**
 
 ---
 
-## 🙌 Author
+## 📄 License
 
-**Devendra Pudi**
-
-GitHub: [@Devendra-Pudi](https://github.com/Devendra-Pudi)
+This project is open-source. Feel free to fork, improve, and use it.
 
 ---
 
-## 📃 License
+<div align="center">
 
-This project is licensed under the MIT License.
+Built with 🔍 by [Devendra Prasad Pudi](https://github.com/Devendra-Pudi)
+
+⭐ Star this repo if you found it useful!
+
+</div>
